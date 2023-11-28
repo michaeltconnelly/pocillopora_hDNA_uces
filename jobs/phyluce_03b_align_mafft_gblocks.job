@@ -1,0 +1,62 @@
+#!/bin/sh
+# ----------------Parameters---------------------- #
+#$ -S /bin/sh
+#$ -pe mthread 16
+#$ -q mThM.q
+#$ -l mres=192G,h_data=12G,h_vmem=12G,himem
+#$ -cwd
+#$ -j y
+#$ -N phyluce_align_mafft_gblocks
+#$ -o phyluce_align_mafft_gblocks.log
+#$ -m bea
+#$ -M connellym@si.edu
+#
+# ----------------Modules------------------------- #
+ module load bioinformatics/phyluce
+# ----------------Your Commands------------------- #
+#
+echo + `date` job $JOB_NAME started in $QUEUE with jobID=$JOB_ID on $HOSTNAME
+echo + NSLOTS = $NSLOTS
+
+#specify variable containing sequence file prefixes and directory paths
+mcs="/scratch/nmnh_corals/connellym"
+prodir="/scratch/nmnh_corals/connellym/projects/pocillopora_hDNA_uces"
+
+# making a list of sample names
+set=$1
+#files=$(ls /scratch/nmnh_corals/connellym/projects/etp_pocillopora_gskim/data/raw/)
+#samples=$(echo "$files" | cut -d . -f 1 | sort -u)
+samples=$(cat ${prodir}/data/${set}_samples.txt)
+
+# creating a variable with the number of taxa
+ntaxa=$(grep "^\[.*\]" ${prodir}/outputs/uce-taxon-sets/${set}-taxa-incomplete.incomplete | wc -l)
+
+# align the data - turn off trimming and output FASTA
+phyluce_align_seqcap_align \
+    --fasta ${prodir}/outputs/uce-taxon-sets/${set}-taxa-incomplete.fasta \
+    --output ${prodir}/outputs/uce-taxon-sets/${set}-mafft-nexus-internal-trimmed \
+    --taxa $ntaxa \
+    --aligner mafft \
+    --cores $NSLOTS \
+    --incomplete-matrix \
+    --output-format fasta \
+    --no-trim \
+    --log-path ${prodir}/outputs/uce-taxon-sets/log
+
+    # run gblocks trimming on the alignments
+phyluce_align_get_gblocks_trimmed_alignments_from_untrimmed \
+    --alignments ${prodir}/outputs/uce-taxon-sets/${set}-mafft-nexus-internal-trimmed \
+    --output ${prodir}/outputs/uce-taxon-sets/${set}-mafft-nexus-internal-trimmed-gblocks \
+    --cores $NSLOTS \
+    --log ${prodir}/outputs/uce-taxon-sets/log
+    
+    # get alignment summary data
+phyluce_align_get_align_summary_data \
+    --alignments ${prodir}/outputs/uce-taxon-sets/${set}-mafft-nexus-internal-trimmed-gblocks \
+    --cores $NSLOTS \
+    --log-path ${prodir}/outputs/uce-taxon-sets/log
+
+echo = `date` job $JOB_NAME done
+
+# start next job in pipeline - clean alignment
+qsub ${prodir}/jobs/phyluce_04_clean_alignment.job $set

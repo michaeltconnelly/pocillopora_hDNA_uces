@@ -1,6 +1,6 @@
 #!/bin/bash
 
-prodir="/scratch/nmnh_corals/connellym/projects/etp_pocillopora_gskim"
+prodir="/scratch/nmnh_corals/connellym/projects/pocillopora_hDNA_uces"
 study="$1"
 
 echo "# /bin/sh
