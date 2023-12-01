@@ -55,4 +55,4 @@ phyluce_assembly_get_fastas_from_match_counts \
 echo = `date` job $JOB_NAME done
 
 # start next job in pipeline - MAFFT alignment and trimming
-qsub ${prodir}/jobs/phyluce_03b_align_mafft_gblocks.job $set
+#qsub ${prodir}/jobs/phyluce_03b_align_mafft_gblocks.job $set
