@@ -18,4 +18,4 @@ This repository holds the data and code for analysis of historical DNA sequenced
 | USNM 99470   | Panama, Islas Secas    | 1934            |
 
 
-![**USNM specimens processed for hDNA target enrichment sequencing.**  ](./images/usnm_specimens_figure.JPG)
+![**USNM specimens processed for hDNA target enrichment sequencing.**  ](./images/usnm_specimens_figure.jpg)
