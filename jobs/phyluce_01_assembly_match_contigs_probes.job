@@ -33,6 +33,7 @@ mkdir ${prodir}/outputs/spades/contigs/${set}
 # copy outgroup contigs from data 
 cp ${prodir}/data/outgroups/*.fasta ${prodir}/outputs/spades/contigs/${set}
 # copy reference sample contigs 
+cp ${prodir}/data/tep_contigs/*.fasta ${prodir}/outputs/spades/contigs/${set}
 
 # copy historical USNM specimen contigs to working directory and rename files
 for sample in ${samples} ; do cp ${prodir}/outputs/spades/${sample}*/contigs.fasta ${prodir}/outputs/spades/contigs/${set}/${sample}_contigs.fasta ; done
