@@ -46,11 +46,10 @@ echo 'echo + NSLOTS = $NSLOTS' >> ${prodir}/bash/jobs/${sample}_mitofinder.job
 # pocilloporidae.gb consists of Pocillopora (2), Madracis (1), Stylophora (1), Seriatopora (2) mitogenomes
 echo "mitofinder \
 -j ${sample} \
--o 1 \
--r ${mcs}/sequences/pocilloporidae.gb \
+-o 4 \
+-r ${mcs}/sequences/pocillopora.gb \
 -1 ${prodir}/data/trimmed/${sample}_R1_PE_trimmed.fastq.gz  \
--2 ${prodir}/data/trimmed/${sample}_R2_PE_trimmed.fastq.gz  \
---new-genes" >> "${prodir}"/bash/jobs/${sample}_mitofinder.job
+-2 ${prodir}/data/trimmed/${sample}_R2_PE_trimmed.fastq.gz " >> "${prodir}"/bash/jobs/${sample}_mitofinder.job
 
 #
 echo 'echo '${sample}' successfully processed' >> "${prodir}"/bash/jobs/${sample}_mitofinder.job
