@@ -31,6 +31,8 @@ samples=$(cat ${prodir}/data/${set}_samples.txt)
 # create the basic configuration file
 echo '[all]' > ${prodir}/data/${set}.conf
 for sample in $samples; do echo ${sample}_contigs  >> ${prodir}/data/${set}.conf ; done
+# add reference samples
+for i in ${prodir}/data/tep_contigs/*.fasta; do basename $i | cut -d . -f 1 >> ${prodir}/data/${set}.conf; done
 # add outgroup taxa
 echo "Seriatopora_hystrix_ReFuGe_contigs" >> ${prodir}/data/${set}.conf
 echo "Stylophora_pistillata_ANT17_contigs" >> ${prodir}/data/${set}.conf
