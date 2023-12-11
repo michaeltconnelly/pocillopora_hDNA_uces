@@ -1,0 +1,2 @@
+infile=$(basename *.charsets)
+sed 's/charset/DNA,/g' ${infile}.charsets | sed 's/;//g' | sed 's/ = /=/g' | sed "s/'*'//g" | sed '1d; 2d; $d' | grep -v "charpartition" > ${infile}.partitions
