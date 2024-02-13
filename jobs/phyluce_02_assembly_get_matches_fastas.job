@@ -36,7 +36,8 @@ for i in ${prodir}/data/tep_contigs/*.fasta; do basename $i | cut -d . -f 1 >> $
 # add outgroup taxa
 echo "Seriatopora_hystrix_ReFuGe_contigs" >> ${prodir}/data/${set}.conf
 echo "Stylophora_pistillata_ANT17_contigs" >> ${prodir}/data/${set}.conf
-TAXA="pocillopora_acuta pocillopora_effusa pocillopora_damicornis pocillopora_verrucosa pocillopora_meandrina stylophora_pistillata"
+
+TAXA=$(ls ${prodir}/data/outgroups/scleractinia-genome-fasta/ | cut -d . -f 1)
 for taxon in $TAXA; do echo $taxon >> ${prodir}/data/${set}.conf; done
 
 # create the data matrix configuration file
