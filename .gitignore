@@ -2,3 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
+*.Rproj
+outputs/QCs/*
+outputs/.DS_Store
+.DS_Store
