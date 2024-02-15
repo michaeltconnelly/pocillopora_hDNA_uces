@@ -29,7 +29,6 @@ set=$1
 iqtree2 \
 -s ${prodir}/outputs/uce-taxon-sets/${set}-mafft-nexus-internal-trimmed-gblocks-clean-${2}p-raxml/${set}-mafft-nexus-internal-trimmed-gblocks-clean-${2}p.phylip \
 -p ${prodir}/outputs/uce-taxon-sets/${set}-mafft-nexus-internal-trimmed-gblocks-clean-${2}p-raxml/${set}-mafft-nexus-internal-trimmed-gblocks-clean-${2}p.partitions \
--o Seriatopora_hystrix_ReFuGe_contigs \
 --seqtype DNA \
 -m MFP+MERGE \
 -bb 1000 \
