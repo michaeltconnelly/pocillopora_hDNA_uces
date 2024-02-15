@@ -27,6 +27,7 @@ prodir="/scratch/nmnh_corals/connellym/projects/pocillopora_hDNA_uces"
 set=$1
 #
 iqtree2 \
+--redo-tree \
 -s ${prodir}/outputs/uce-taxon-sets/${set}-mafft-nexus-internal-trimmed-gblocks-clean-${2}p-raxml/${set}-mafft-nexus-internal-trimmed-gblocks-clean-${2}p.phylip \
 -p ${prodir}/outputs/uce-taxon-sets/${set}-mafft-nexus-internal-trimmed-gblocks-clean-${2}p-raxml/${set}-mafft-nexus-internal-trimmed-gblocks-clean-${2}p.partitions \
 -o Seriatopora_hystrix_ReFuGe_contigs \
