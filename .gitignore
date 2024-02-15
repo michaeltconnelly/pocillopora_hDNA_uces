@@ -4,5 +4,7 @@
 .Ruserdata
 *.Rproj
 outputs/QCs/*
+outputs/figures
+outputs/iqtree
 outputs/.DS_Store
 .DS_Store
