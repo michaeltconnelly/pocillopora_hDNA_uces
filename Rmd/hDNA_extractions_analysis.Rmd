@@ -1,0 +1,86 @@
+---
+title: "hDNA_extractions_analysis"
+author: "Mary Grace Catapang, Mike Connelly"
+date: "2022-06-23"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
+```
+## libraries
+```{r libraries}
+library("tidyverse")
+library("magrittr") 
+library("viridis")
+library("ggpubr")
+```
+
+## hDNA Extraction Data Import
+```{r col_types}
+cols_hDNA <- cols(
+  `Extraction Number` = col_double(),
+  `Catalog Number` = col_character(),
+  `NMNH Species ID` = col_character(),
+  `Country` = col_character(),
+  `Collection Date` = col_character(), #
+  `Collection Year` = col_double(),
+  `Age (years)` = col_double(),
+  `DNA Extraction Method` = col_character(),
+  `Extraction Date` = col_date("%D"), #
+  `Extracted By` = col_character(),
+  `Overnight Incubation` = col_character(),
+  `Mass (g)` = col_double(),
+  `hDNA conc. (ng/μL)` = col_double()
+)
+```
+```{r concentration_data}
+tableS1 <- read_csv("./data/TableS1.csv", col_types = cols_hDNA) %>%
+  mutate("Normalized hDNA conc. (ng/μL/g)" = `hDNA conc. (ng/μL)`/`Mass (g)`)
+#
+tableS1$`DNA Extraction Method` <- factor(tableS1$`DNA Extraction Method`, levels = c("Qiagen Blood & Tissue", "Qiagen PowerSoil Pro", "Autogen GenePrep"), ordered = T)
+```
+
+## Correlation with specimen age
+```{r}
+methods_colors <- c("#88cdee", "#dccc77", "#b77984")
+title <- expression(paste("Relationship between ", italic("Pocillopora "), "specimen collection year and hDNA yield"))
+ylab <- expression(paste("Normalized hDNA conc. (ng"," \u03BC","L"^"-1"," g"^"-1)"))
+```
+
+```{r year vs. concentration scatterplot}
+# linear trend + confidence interval
+sp1 <- tableS1 %>% ggplot(aes(x = `Collection Year`, y = `Normalized hDNA conc. (ng/μL/g)`)) +
+  #
+  geom_hline(yintercept = 0, color = "grey25", linewidth = 0.25) +
+  geom_smooth(method = lm , color = "grey25", fill = "grey", linewidth = 0.5, se = TRUE) +
+  geom_point(aes(fill = `DNA Extraction Method`), size = 2.75, color = "black", shape = 21, alpha = 0.8) +
+  stat_cor(method = "pearson",
+           # label.x = 0,
+           label.y = 550,
+           color = "black", size = 3) +
+  # add facets to separate different methods? only use Qiagen B&T?
+  facet_grid(~ `DNA Extraction Method`) +
+  labs(x = "Collection Year", y = ylab) +
+  scale_fill_manual(values = methods_colors, name = "Method") +
+  scale_x_continuous(limits = c(1885, 2005), breaks = c(1900, 1950, 2000)) +
+  scale_y_continuous(limits = c(-120, 600)) +
+  ggtitle(title) +
+  theme_bw() +
+  theme(
+   legend.position = "none",
+   plot.title = element_text(size = 12, hjust = 80),
+   axis.text = element_text(size = 10, color = "black"),
+   axis.title.x = element_text(size = 10, margin = margin(5,0,0,0)),
+   axis.title.y = element_text(size = 10, margin = margin(0,5,0,0)),
+   plot.margin = unit(c(5,5,5,5), "mm")
+  )
+#
+print(sp1)
+# There is no correlation between age of specimen and the DNA concentration collected.
+```
+```{r}
+ggsave("./outputs/figures/Fig1_scatterplot.pdf", device = cairo_pdf, width = 6.5, height = 3.5)
+```
+

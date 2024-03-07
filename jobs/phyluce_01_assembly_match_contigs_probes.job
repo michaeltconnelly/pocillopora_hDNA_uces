@@ -31,7 +31,7 @@ samples=$(cat ${prodir}/data/${set}_samples.txt)
 # make directory to hold contigs for a given analysis
 mkdir ${prodir}/outputs/spades/contigs/${set}
 # copy outgroup contigs from data 
-cp ${prodir}/data/outgroups/*.fasta ${prodir}/outputs/spades/contigs/${set}
+# cp ${prodir}/data/outgroups/*.fasta ${prodir}/outputs/spades/contigs/${set}
 # copy reference genome contigs from data
 cp ${prodir}/data/outgroups/scleractinia-genome-fasta/*.fasta ${prodir}/outputs/spades/contigs/${set}
 # copy reference sample contigs 

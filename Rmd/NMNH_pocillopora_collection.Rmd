@@ -1,0 +1,78 @@
+---
+title: "NMNH Pocillopora"
+author: "Mike Connelly"
+date: "2024-03-07"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
+```
+
+### Import and tidy data for all NMNH *Pocillopora* specimens
+```{r nmnh import}
+cols_nmnh <- cols(
+  `Catalog Number` = col_character(),
+  `Kind of Object` = col_character(),
+  `Scientific Name` = col_character(),
+  Family = col_character(),
+  Phylum = col_character(),
+  Class = col_character(),
+  Order = col_character(),
+  `Identified By` = col_character(),
+  `Date Identified` = col_character(),
+  `Current Identification` = col_character(),
+  `Other Identifications` = col_character(),
+  `Type Status` = col_character(),
+  `Type Citations` = col_character(),
+  `Kind of Voucher` = col_character(),
+  Classification = col_character(),
+  `Common Name` = col_character(),
+  `Collection Name` = col_character(),
+  `Specimen Count` = col_character(),
+  `Sex and Stage` = col_character(),
+  `Preparation Details (Preparation:Remarks)` = col_character(),
+  `Station Number` = col_character(),
+  `Collector(s)` = col_character(),
+  `Date Collected` = col_character(),
+  `Collection Method` = col_character(),
+  Ocean = col_character(),
+  `Sea/Gulf` = col_character(),
+  `Bay/Sound` = col_character(),
+  Country = col_character(),
+  `Province/State` = col_character(),
+  `District/County` = col_character(),
+  `City/Town` = col_character(),
+  `Precise Locality` = col_character(),
+  `Centroid Latitude` = col_double(),
+  `Centroid Longitude` = col_double(),
+  `Elevation (m)` = col_double(),
+  `Expedition Name` = col_character(),
+  Vessel = col_character(),
+  Cruise = col_character(),
+  `River Basin` = col_logical(),#
+  `Microhabitat Description` = col_character(),
+  `Depth (m)` = col_character(),
+  `Depth Notes` = col_character(),
+  `Geologic Age` = col_character(),#
+  Notes = col_character(),
+  `Field Number(s)` = col_character(),
+  `Other Numbers (Type : Value)` = col_character(),
+  `Accession Number` = col_character(),
+  `Genetic Sample Type` = col_character(),
+  `Biorepository Number` = col_character(),
+  `Specimen Voucher Number` = col_logical(),#
+  `Bold ID` = col_logical(),#
+  `GenBank Numbers` = col_logical(),#
+  `Preservation Method` = col_logical(),#
+  `Embargo?` = col_character(),#
+  `Depleted?` = col_logical(),
+  `Record Last Modified` = col_character(),
+  EZID = col_character()
+)
+# Import NMNH Pocillopora records using correct data types
+nmnh_pocillopora_all <- read_csv("./data/nmnh_pocillopora_search-02132024.csv",
+                                 col_types = cols_nmnh)
+# 1,274 specimens, 57 metadata variables
+```
