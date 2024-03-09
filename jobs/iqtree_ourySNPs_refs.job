@@ -21,10 +21,10 @@ echo + NSLOTS = $NSLOTS
 
 #specify variable containing sequence file prefixes and directory paths
 mcs="/scratch/nmnh_corals/connellym"
-prodir="/scratch/nmnh_corals/connellym/projects/etp_pocillopora_gskim"
+prodir="/scratch/nmnh_corals/connellym/projects/pocillopora_hDNA_uces"
 
 iqtree2 \
--s ${prodir}/outputs/oury_pipeline/contigs_DP3_SP6_miss15_merged361ref.min4.phy \
+-s ${prodir}/outputs/oury_pipeline/contigs_DP3_SP6_merged361ref.min4.phy \
 --seqtype DNA \
 -m MFP \
 -bb 1000 \
