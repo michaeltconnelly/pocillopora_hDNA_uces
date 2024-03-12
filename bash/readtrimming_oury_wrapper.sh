@@ -10,7 +10,7 @@ prodir="/scratch/nmnh_corals/connellym/projects/pocillopora_hDNA_uces"
 #set=$1
 #files=$(ls /scratch/nmnh_corals/connellym/projects/etp_pocillopora_gskim/data/raw/)
 #samples=$(echo "$files" | cut -d . -f 1 | sort -u)
-samples=$(cat ${prodir}/data/${set}_samples.txt)
+samples=$(cat ${prodir}/data/oury_top_SRA_accessions.txt)
 
 #lets me know which files are being processed
 echo "These are the samples to be trimmed:"
