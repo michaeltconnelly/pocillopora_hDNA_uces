@@ -34,6 +34,7 @@ iqtree2 \
 -bb 1000 \
 -alrt 1000 \
 -nt $NSLOTS \
+-keep-ident \
 --prefix ${prodir}/outputs/iqtree/iqtree_${set}_${2}
 
 echo = `date` job $JOB_NAME done
