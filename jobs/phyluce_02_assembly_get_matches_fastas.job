@@ -34,7 +34,7 @@ for sample in $samples; do echo ${sample}_contigs  >> ${prodir}/data/${set}.conf
 # add Connelly reference samples
 for i in ${prodir}/data/contemporary_contigs/*.fasta; do basename $i | cut -d . -f 1 >> ${prodir}/data/${set}.conf; done
 # add Oury reference samples
-#for i in ${prodir}/data/oury_contigs/*.fasta; do basename $i | cut -d . -f 1 >> ${prodir}/data/${set}.conf; done
+for i in ${prodir}/data/oury_contigs/*.fasta; do basename $i | cut -d . -f 1 >> ${prodir}/data/${set}.conf; done
 
 # add outgroup taxa
 #echo "Seriatopora_hystrix_ReFuGe_contigs" >> ${prodir}/data/${set}.conf
