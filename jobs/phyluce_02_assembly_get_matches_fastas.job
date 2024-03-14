@@ -39,7 +39,7 @@ for i in ${prodir}/data/oury_contigs/*.fasta; do basename $i | cut -d . -f 1 >> 
 # add outgroup taxa
 #echo "Seriatopora_hystrix_ReFuGe_contigs" >> ${prodir}/data/${set}.conf
 echo "Stylophora_pistillata_ANT17_contigs" >> ${prodir}/data/${set}.conf
-for i in ${prodir}/data/outgroups/scleractinia-genome-fasta/p*; do basename $i | cut -d . -f 1 >> ${prodir}/data/${set}.conf; done
+# for i in ${prodir}/data/outgroups/scleractinia-genome-fasta/p*; do basename $i | cut -d . -f 1 >> ${prodir}/data/${set}.conf; done
 
 # create the data matrix configuration file
 phyluce_assembly_get_match_counts \
