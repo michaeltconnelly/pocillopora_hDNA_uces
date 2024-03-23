@@ -66,7 +66,7 @@ sp1 <- tableS1 %>% ggplot(aes(x = `Collection Year`, y = `Normalized hDNA conc. 
   scale_fill_manual(values = methods_colors, name = "Method") +
   scale_x_continuous(limits = c(1885, 2005), breaks = c(1900, 1950, 2000)) +
   scale_y_continuous(limits = c(-120, 600)) +
-  ggtitle(title) +
+  # ggtitle(title) +
   theme_bw() +
   theme(
    legend.position = "none",
@@ -78,7 +78,6 @@ sp1 <- tableS1 %>% ggplot(aes(x = `Collection Year`, y = `Normalized hDNA conc. 
   )
 #
 print(sp1)
-# There is no correlation between age of specimen and the DNA concentration collected.
 ```
 ```{r}
 ggsave("./outputs/figures/Fig1_scatterplot.pdf", device = cairo_pdf, width = 6.5, height = 3.5)
