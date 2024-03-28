@@ -17,5 +17,7 @@ For more information on specimens, visit https://collections.nmnh.si.edu/search/
 
 Raw sequencing reads are available in the NCBI SRA under accessions PRJNA1075782 for historical specimens and PRJNA1055517 and PRJNA1076507 for contemporary samples. 
 
-![**UCE target enrichment sequencing enables phylogenetic analysis of dry USNM voucher specimens. **](./images/figure2_github.jpeg) 
-(A) IQ-TREE maximum likelihood phylogenetic tree depicting the placement of NMNH IZ Pocillopora specimens (in red) in the context of publicly available reference genomes (in blue), genomic species hypotheses (GSHs) sensu Oury et al. 2023 (in green), and contemporary specimens. Nodes with <90% bootstrap support are labelled. (B) Photographs of NMNH IZ Pocillopora specimens that were successfully sequenced (>300 UCE sequences) and placed onto the ML phylogeny. 
+![**Fig. 2: UCE target enrichment sequencing enables phylogenetic analysis of dry USNM voucher specimens. **](./images/figure2_github.jpeg) 
+
+(A) IQ-TREE maximum likelihood phylogenetic tree depicting the placement of NMNH IZ Pocillopora specimens (in red) in the context of publicly available reference genomes (in blue), genomic species hypotheses (GSHs, in green), and contemporary specimens. The tree was constructed with a 50% sample occupancy matrix containing 1,510 UCE loci, 600,934 bp, and 37,584 informative sites, and nodes with <90% bootstrap support are labelled. 
+(B) Photographs of NMNH IZ Pocillopora specimens that were successfully sequenced (>300 UCE sequences) and placed onto the ML phylogeny. 
