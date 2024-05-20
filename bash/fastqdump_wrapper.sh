@@ -1,7 +1,8 @@
 #!/bin/bash
 
 prodir="/scratch/nmnh_corals/connellym/projects/pocillopora_hDNA_uces"
-samples=$(cat ${prodir}/data/oury_top_SRA_accessions.txt)
+#samples=$(cat ${prodir}/data/oury_top_SRA_accessions.txt)
+samples=$(cat ${prodir}/data/oury_top5_SRA_samples.txt)
 
 JOBFILE=${prodir}/bash/jobs/fastqdump_${sample}.job
 
