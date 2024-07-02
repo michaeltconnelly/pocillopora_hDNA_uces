@@ -1,6 +1,8 @@
 # pocillopora_hDNA_uces
 
-This repository holds the data and code for analysis of historical DNA (hDNA) sequenced from dried *Pocillopora* corals in the Smithsonian National Museum of Natural History dry collections. The manuscript detailing the results of these experiments in currently in review.
+This repository holds the data and code for analysis of historical DNA (hDNA) sequenced from dried *Pocillopora* corals in the Smithsonian National Museum of Natural History dry collections. The manuscript detailing the results of these experiments is now published in *Coral Reefs*! 
+
+Please visit: ["Unlocking the treasure trove: leveraging dry coral specimens for museum genomics", Connelly et al. (2024)](https://link.springer.com/article/10.1007/s00338-024-02525-5)
 
 
 Catalog Number | Origin | Collection Date | Age (years) | UCE loci | GSH | Current Nomenclature |
@@ -15,7 +17,7 @@ USNM 81557 | Tanzania | August 16, 1957 | 67 | 327 | GSH05a-3 | *P. acuta* |
 
 For more information on specimens, visit https://collections.nmnh.si.edu/search/iz/
 
-Raw sequencing reads are available in the NCBI SRA under accessions PRJNA1075782 for historical specimens and PRJNA1055517 and PRJNA1076507 for contemporary samples. 
+Raw sequencing reads are available in the NCBI SRA under accessions [PRJNA1075782](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1075782) for historical specimens and [PRJNA1055517](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1055517) and [PRJNA1076507](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1076507) for contemporary samples. 
 
 ![**Fig. 2: UCE target enrichment sequencing enables phylogenetic analysis of dry USNM voucher specimens. **](./images/figure2_github.jpeg) 
 
